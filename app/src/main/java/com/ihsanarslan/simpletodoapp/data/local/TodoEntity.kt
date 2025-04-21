@@ -14,5 +14,5 @@ data class TodoEntity(
     @ColumnInfo(name = "description")
     val description: String,
     @ColumnInfo(name = "isCompleted")
-    val isCompleted: Boolean
+    val isCompleted: Boolean = false
 )
