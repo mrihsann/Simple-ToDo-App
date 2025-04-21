@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
+import com.ihsanarslan.simpletodoapp.presentation.home.HomeScreen
 import com.ihsanarslan.simpletodoapp.ui.theme.MyappTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -19,9 +20,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MyappTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Text(text = "Hello, World!", modifier = Modifier.padding(innerPadding))
-                }
+                HomeScreen()
             }
         }
     }

@@ -28,8 +28,8 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideTodoDao(database: TodoDatabase) {
-        database.todoDao()
+    fun provideTodoDao(database: TodoDatabase) : TodoDao {
+        return database.todoDao()
     }
 
     @Provides
