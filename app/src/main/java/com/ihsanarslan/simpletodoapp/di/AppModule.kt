@@ -2,7 +2,9 @@ package com.ihsanarslan.simpletodoapp.di
 
 import android.content.Context
 import androidx.room.Room
+import com.ihsanarslan.simpletodoapp.data.local.TodoDao
 import com.ihsanarslan.simpletodoapp.data.local.TodoDatabase
+import com.ihsanarslan.simpletodoapp.domain.repository.TodoDaoRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -28,6 +30,12 @@ object AppModule {
     @Singleton
     fun provideTodoDao(database: TodoDatabase) {
         database.todoDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideTodoDaoRepositoryImpl(todoDao: TodoDao) : TodoDaoRepositoryImpl {
+        return TodoDaoRepositoryImpl(todoDao)
     }
 
 
