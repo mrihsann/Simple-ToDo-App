@@ -15,10 +15,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.ihsanarslan.simpletodoapp.data.local.TodoEntity
 
 @Composable
-fun AddScreen(){
+fun AddScreen(navController: NavController){
 
     val viewModel = hiltViewModel<AddScreenViewModel>()
 
