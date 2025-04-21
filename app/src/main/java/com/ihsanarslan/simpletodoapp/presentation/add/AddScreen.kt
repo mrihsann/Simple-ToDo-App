@@ -51,5 +51,12 @@ fun AddScreen(navController: NavController){
         ) {
             Text("Add")
         }
+        Button(
+            onClick = {
+                navController.navigateUp()
+            }
+        ) {
+            Text("Geri Dön")
+        }
     }
 }
