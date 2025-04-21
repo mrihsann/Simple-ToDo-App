@@ -1,8 +1,7 @@
 package com.ihsanarslan.simpletodoapp.presentation.home
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
@@ -13,13 +12,13 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
+import com.ihsanarslan.simpletodoapp.navigation.Screen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -38,7 +37,7 @@ fun HomeScreen(navController: NavController){
         },
         floatingActionButton = {
             FloatingActionButton(onClick = {
-
+                navController.navigate(Screen.Add)
             }) {
                 Icon(Icons.Default.Add, contentDescription = "Add")
             }
@@ -49,7 +48,7 @@ fun HomeScreen(navController: NavController){
             contentPadding = paddings
         ){
             items(todoList.value.size) {
-                Card {
+                Card(modifier = Modifier.clickable{navController.navigate(Screen.Detail(todoList.value[it].id))}) {
                     Column {
                         Text(text = todoList.value[it].title)
                         Text(text = todoList.value[it].description)
